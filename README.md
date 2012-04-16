@@ -18,13 +18,20 @@ Or install it yourself as:
 
 ## Usage
 
+		# app/models/foobar.rb
 		class Foobar < ActiveRecord::Base
 			acts_as_fuzzy_search
 			
 			# Or pass it some options:
 			# acts_as_fuzzy_search(:scope => :your_scope_name, :search_algorithm => :white_similarity)
 		end
-
+		
+		# Elsewhere in your code
+		Foobar.find_by_fuzzy_search 'smthing'
+		
+		# Or pass it some options
+		Foobar.find_by_fuzzy_search 'smthing', {:date_format => "%B %d %Y", :search_algorithm => :levenshtein_distance})
+		
 ## Contributing
 
 1. Fork it
