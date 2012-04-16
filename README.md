@@ -1,6 +1,6 @@
 # ActsAsFuzzySearch
 
-TODO: Write a gem description
+Return Activerecord records that match a search query. Ideally used for small sets of data and simple search terms.
 
 ## Installation
 
