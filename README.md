@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+		class Foobar < ActiveRecord::Base
+			acts_as_fuzzy_search
+			
+			# Or pass it some options:
+			# acts_as_fuzzy_search(:scope => :your_scope_name, :search_algorithm => :white_similarity)
+		end
 
 ## Contributing
 
