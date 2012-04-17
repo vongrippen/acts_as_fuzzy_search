@@ -16,6 +16,8 @@ Gem::Specification.new do |gem|
   gem.version       = ActsAsFuzzySearch::VERSION
   
   gem.add_dependency "text", "~> 1.0.0"
+  gem.add_dependency "nokogiri"
+  
   # gem.add_dependency "fuzzy-string-match", "~> 0.9.0" Drop this until we 
 
   gem.add_development_dependency "minitest"
