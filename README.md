@@ -30,7 +30,13 @@ Or install it yourself as:
 		Foobar.find_by_fuzzy_search 'smthing'
 		
 		# Or pass it some options
-		Foobar.find_by_fuzzy_search 'smthing', {:date_format => "%B %d %Y", :search_algorithm => :levenshtein_distance})
+		Foobar.find_by_fuzzy_search('smthing', {:date_format => "%B %d %Y", :search_algorithm => :levenshtein_distance})
+
+
+The 'text' gem throws a warning in v1.0.3 that will slow down White-Similarity matches. You may want to specify the latest version in your app until the next release of 'text':
+
+		# Gemfile
+		gem 'text', :git => "https://github.com/threedaymonk/text.git"
 		
 ## Contributing
 
