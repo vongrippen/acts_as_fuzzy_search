@@ -22,6 +22,7 @@ module ActsAsFuzzySearch
       def acts_as_fuzzy_search(options = {})
         @config = { :date_format => DATE_FORMAT,
                     :scope => "all",
+                    :scope_args => nil, # Should be an array of arguments to pass
                     :search_algorithm => DEFAULT_ALGORITHM,
                     :jarow_score => MATCH_SCORE,
                     :white_similarity_score => MATCH_SCORE,
@@ -38,7 +39,14 @@ module ActsAsFuzzySearch
         search_term = search_term.strip.chomp
         records = []
 
-        send(config[:scope]).each do |record|
+        if config[:scope_args] and config[:scope_args].is_a? Array
+          scoped_records = send(config[:scope], *config[:scope_args])
+        elsif config[:scope_args]
+          scoped_records = send(config[:scope], config[:scope_args])
+        else
+          scoped_records = send(config[:scope])
+        end
+        scoped_records.each do |record|
 
           attrs = record.attributes.values
 
